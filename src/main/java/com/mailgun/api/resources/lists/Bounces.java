@@ -3,9 +3,9 @@ package com.mailgun.api.resources.lists;
 import com.google.gson.annotations.SerializedName;
 import com.mailgun.api.Endpoints;
 import com.mailgun.api.MailGunClient;
+import com.mailgun.api.resources.ListResource;
 import com.mailgun.api.domain.Bounce;
 import com.mailgun.api.domain.Paging;
-import com.mailgun.api.resources.ListResource;
 
 import javax.ws.rs.core.MultivaluedMap;
 import java.util.List;

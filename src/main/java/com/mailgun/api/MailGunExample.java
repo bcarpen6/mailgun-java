@@ -1,8 +1,8 @@
 package com.mailgun.api;
 
 import com.google.gson.Gson;
-import com.mailgun.api.domain.Bounce;
 import com.mailgun.api.resources.lists.Bounces;
+import com.mailgun.api.domain.Bounce;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 import javax.ws.rs.core.MultivaluedMap;
