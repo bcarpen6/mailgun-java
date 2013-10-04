@@ -1,6 +1,6 @@
 package com.mailgun.api;
 
-import com.mailgun.api.resourcesV2.lists.Bounces;
+import com.mailgun.api.resources.lists.Bounces;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;

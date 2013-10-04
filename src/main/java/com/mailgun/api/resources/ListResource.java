@@ -1,4 +1,4 @@
-package com.mailgun.api.resourcesV2;
+package com.mailgun.api.resources;
 
 import com.google.gson.Gson;
 import com.mailgun.api.MailGunClient;
