@@ -11,6 +11,7 @@ dependencies {
 	compile 'com.sun.jersey:jersey-core:1.17.1'
 	compile 'com.sun.jersey.contribs:jersey-multipart:1.17.1'
 	compile 'com.google.code.gson:gson:2.2.4'
+	compile 'org.apache.commons:commons-lang3:3.0'
 
     testCompile 'junit:junit:4.11'
 }
