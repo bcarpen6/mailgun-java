@@ -1,10 +1,13 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Paging {
-	//@SerializedName("next")
+
+    @SerializedName("next")
 	String nextUrl;
 
-	//@SerializedName("previous")
+	@SerializedName("previous")
 	String previousUrl;
 	
 	public String getNextUrl() {

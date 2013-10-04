@@ -1,14 +1,16 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Attachment {
 	
-	// @SerializedName("filename")
+	@SerializedName("filename")
 	public String filename;
 	
-	// @SerializedName("content-type")
+	@SerializedName("content-type")
 	public String contentType;
 	
-	// @SerializedName("size")
+	@SerializedName("size")
 	public String size;
 	
 	public String getFilename() {

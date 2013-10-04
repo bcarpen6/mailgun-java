@@ -1,17 +1,19 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Envelope {
 	
-	//@SerializedName("transport")
+	@SerializedName("transport")
 	String transport;
 	
-	//@SerializedName("sender")
+	@SerializedName("sender")
 	String sender;
 	
-	//@SerializedName("sending-ip")
+	@SerializedName("sending-ip")
 	String sendingIp;
 	
-	//@SerializedName("targets")
+	@SerializedName("targets")
 	String targets;
 	
 	public String getTransport() {

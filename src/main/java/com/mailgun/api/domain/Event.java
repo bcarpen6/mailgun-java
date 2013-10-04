@@ -1,40 +1,42 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Event {
 	// TODO CHECK THIS, STAT TAG RETURNS {}, this returns a list
-	// @SerializedName("tags")
+	@SerializedName("tags")
 	List<Tags> tags;
 	
-	// @SerializedName("envelope")
+	@SerializedName("envelope")
 	Envelope envelope;
 	
-	// @SerializedName("delivery_status")
+	@SerializedName("delivery_status")
 	DeliveryStatus deliveryStatus;
 	
-	// @SerializedName("campaigns")
+	@SerializedName("campaigns")
 	List<Campaign> campaigns;
 	
-	// @SerializedName("reason")
+	@SerializedName("reason")
 	String reason;
 	
-	// @SerializedName("user-variables")
+	@SerializedName("user-variables")
 	UserVariables userVariables;
 	
-	// @SerializedName("flags")
+	@SerializedName("flags")
 	Flags flags;
 	
-	// @SerializedName("timestamp")
+	@SerializedName("timestamp")
 	String timestamp;
 	
-	// @SerializedName("message")
+	@SerializedName("message")
 	Message message;
 	
-	// @SerializedName("recipient")
+	@SerializedName("recipient")
 	String recipient;
 	
-	// @SerializedName("event")
+	@SerializedName("event")
 	String event;
 	
 	public List<Tags> getTags() {

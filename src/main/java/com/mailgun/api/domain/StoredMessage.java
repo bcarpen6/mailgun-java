@@ -1,31 +1,33 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class StoredMessage {
 	
-	// @SerializedName("tags")
+	@SerializedName("tags")
 	List<String> tags;
 	
-	// @SerializedName("timestamp")
+	@SerializedName("timestamp")
 	String timestamp;
 	
-	//@SerializedName("storage")
+	@SerializedName("storage")
 	Storage storage;
 	
-	//@SerializedName("campaigns")
+	@SerializedName("campaigns")
 	List<String> campaigns;
 	
-	//@SerializedName("user-variables")
+	@SerializedName("user-variables")
 	UserVariables userVariables;
 	
-	//@SerializedName("flags")
+	@SerializedName("flags")
 	Flags flags;
 	
-	//@SerializedName("message")
+	@SerializedName("message")
 	Message message;
 	
-	//@SerializedName("event")
+	@SerializedName("event")
 	String event;
 	
 	public List<String> getTags() {

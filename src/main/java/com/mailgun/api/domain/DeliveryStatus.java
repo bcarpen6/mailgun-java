@@ -1,14 +1,16 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 public class DeliveryStatus {
 	
-	// @SerializedName("message")
+	@SerializedName("message")
 	String message;
 	
-	//@SerializedName("code")
+	@SerializedName("code")
 	String code;
 	
-	//@SerializedName("description")
+	@SerializedName("description")
 	String description;
 	
 	public String getMessage() {

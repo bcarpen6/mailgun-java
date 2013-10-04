@@ -1,14 +1,16 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Complaint {
 	
-	// @SerializedName("count")
+	@SerializedName("count")
 	public Integer count;
 	
-	// @SerializedName("created_at")
+	@SerializedName("created_at")
 	public String createdAt;
 	
-	// @SerializedName("address")
+	@SerializedName("address")
 	public String address;
 	
 	public Integer getCount() {

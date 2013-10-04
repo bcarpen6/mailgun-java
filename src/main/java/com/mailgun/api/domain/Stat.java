@@ -1,20 +1,22 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Stat {
 
-	//@SerializedName("event")
+	@SerializedName("event")
 	public String event;
 	
-	//@SerializedName("total_count")
+	@SerializedName("total_count")
 	public int itemTotalCount;
 	
-	// @SerializedName("created_at")
+	@SerializedName("created_at")
 	public String createdAt;
 	
-	// @SerializedName("tags")
+	@SerializedName("tags")
 	public Tags tags;
 	
-	// @SerializedName("id")
+	@SerializedName("id")
 	public String id;
 	
 	public String getEvent() {

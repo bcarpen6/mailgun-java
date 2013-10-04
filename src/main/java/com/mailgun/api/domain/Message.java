@@ -1,19 +1,21 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Message {
 	
-	//@SerializedName("headers")
+	@SerializedName("headers")
 	public Headers headers;
 	
-	//@SerializedName("attachments")
+	@SerializedName("attachments")
 	public List<Attachment> attachments;
 	
-	//@SerializedName("recipients")
+	@SerializedName("recipients")
 	public List<String> recipients;
 	
-	//@SerializedName("size")
+	@SerializedName("size")
 	public Integer size;
 	
 	public Headers getHeaders() {

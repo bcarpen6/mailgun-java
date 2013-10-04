@@ -1,17 +1,19 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Headers {
 	
-	//@SerializedName("to")
+	@SerializedName("to")
 	public String to;
 	
-	//@SerializedName("message-id")
+	@SerializedName("message-id")
 	public String messageId;
 	
-	//@SerializedName("from")
+	@SerializedName("from")
 	public String from;
 	
-	//@SerializedName("subject")
+	@SerializedName("subject")
 	public String subject;
 	
 	public String getTo() {

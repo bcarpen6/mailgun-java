@@ -1,13 +1,16 @@
 package com.mailgun.api.domain;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Flags {
-	//@SerializedName("is-test-mode")
+
+    @SerializedName("is-test-mode")
 	public Boolean isTestMode;
 
-	//@SerializedName("is-system-test")
+	@SerializedName("is-system-test")
 	public Boolean isSystemTest;
 	
-	//@SerializedName("is-authenticated")
+	@SerializedName("is-authenticated")
 	public Boolean isAuthenticated;
 	
 	public Boolean getIsTestMode() {
