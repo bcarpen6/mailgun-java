@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.5'
+	compile 'com.sun.jersey:jersey-client:1.17.1'
+	compile 'com.sun.jersey:jersey-core:1.17.1'
+	compile 'com.sun.jersey.contribs:jersey-multipart:1.17.1'
+
+    testCompile "junit:junit:4.11"
+}
+
