@@ -1,9 +1,11 @@
 package com.mailgun.api;
 
+import com.mailgun.api.resources.lists.Bounces;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 import javax.ws.rs.core.MultivaluedMap;
 import java.net.URI;
@@ -24,6 +26,14 @@ public class MailGunClient {
 		this.client.addFilter(new HTTPBasicAuthFilter("api", apiKey));
 		this.service = this.client.resource(getBaseUri());
 	}
+
+    public Bounces getBounces(MultivaluedMap<String, String> params) {
+        return  new Bounces(this, params);
+    }
+
+    public Bounces getBounces() {
+        return this.getBounces(new MultivaluedMapImpl());
+    }
 	
 	public URI getBaseUri() {
 		return URI.create(String.format("https://%s/%s/%s", this.apiEndpoint, API_VERSION, this.domain));
