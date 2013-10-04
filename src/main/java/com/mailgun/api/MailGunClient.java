@@ -1,9 +1,11 @@
 package com.mailgun.api;
 
 import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 
+import javax.ws.rs.core.MultivaluedMap;
 import java.net.URI;
 
 public class MailGunClient {
@@ -42,4 +44,12 @@ public class MailGunClient {
 	public void setDomain(String domain) {
 		this.domain = domain;
 	}
+
+    public ClientResponse get(String path){
+        return this.service.path(path).get(ClientResponse.class);
+    }
+
+    public ClientResponse get(String path, MultivaluedMap params){
+        return this.service.path(path).queryParams(params).get(ClientResponse.class);
+    }
 }
