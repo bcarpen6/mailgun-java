@@ -1,4 +1,4 @@
-package com.mailgun.api.Resources;
+package com.mailgun.api.resources;
 
 import com.mailgun.api.MailGunClient;
 import com.mailgun.api.domain.Paging;
