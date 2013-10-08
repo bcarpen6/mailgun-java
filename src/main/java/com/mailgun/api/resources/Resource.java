@@ -1,6 +1,7 @@
 package com.mailgun.api.resources;
 
 import com.mailgun.api.MailGunClient;
+import com.mailgun.api.MailGunResponse;
 import com.mailgun.api.exceptions.InvalidCredentials;
 import com.mailgun.api.exceptions.MailGunException;
 import com.mailgun.api.exceptions.MissingEndpoint;
@@ -34,9 +35,9 @@ public abstract class Resource {
 		this.loaded = true;
 	}
 
-	public void responseHandler(ClientResponse response) throws MailGunException {
+	public void checkStatusCode(MailGunResponse response) throws MailGunException {
 
-		int statusCode = response.getStatus();
+		int statusCode = response.getStatusCode();
 
 		if (statusCode == 200) return;
 		if (statusCode == 400) {

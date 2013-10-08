@@ -1,6 +1,6 @@
 package com.mailgun.api.exceptions;
 
-import com.sun.jersey.api.client.ClientResponse;
+import com.mailgun.api.MailGunResponse;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,7 +10,7 @@ import com.sun.jersey.api.client.ClientResponse;
  * To change this template use File | Settings | File Templates.
  */
 public class InvalidCredentials extends MailGunException {
-	public InvalidCredentials(String message, ClientResponse response) {
+	public InvalidCredentials(String message, MailGunResponse response) {
 		super(message, response);
 	}
 }
