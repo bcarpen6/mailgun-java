@@ -1,8 +1,8 @@
 package com.mailgun.api;
 
 import com.google.gson.Gson;
+import com.mailgun.api.resources.instances.MessageInstance;
 import com.mailgun.api.resources.lists.Bounces;
-import com.mailgun.api.domain.Bounce;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 import javax.ws.rs.core.MultivaluedMap;
@@ -21,10 +21,20 @@ public class MailGunExample {
     	map.add("limit","2");
     	Bounces list = client.getBounces(map);
 		
-		for (Bounce bounce : list){
-			System.out.println(bounce.getAddress() + " " + bounce.getCreatedAt());
-			System.out.println(gson.toJson(bounce));
-		}
+//		for (Bounce bounce : list){
+//			System.out.println(bounce.getAddress() + " " + bounce.getCreatedAt());
+//			System.out.println(gson.toJson(bounce));
+//		}
+
+		String to = "bcarpen6@gmail.com";
+		String from = "bcarpen6@gmail.com";
+		String subject = "hello";
+		String body = "yep";
+
+		Email email = new Email(to, from, body, subject);
+		MessageInstance msg = client.sendSimpleEmail(email);
+		System.out.println(msg.getResponse().getMessage());
+
 	}
 }
 

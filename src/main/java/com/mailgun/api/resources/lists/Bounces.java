@@ -16,7 +16,7 @@ public class Bounces extends ListResource<Bounce> {
 	Integer totalCount;
 	@SerializedName("items")
 	List<Bounce> items;
-	
+
 	public Bounces(MailGunClient client){
 		super(client);
 	}

@@ -2,7 +2,7 @@ package com.mailgun.api.resources;
 
 import com.google.gson.Gson;
 import com.mailgun.api.MailGunClient;
-import com.mailgun.api.MailGunRestException;
+import com.mailgun.api.domain.Paging;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 import org.apache.commons.lang3.StringUtils;
@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public abstract class ListResource<T> extends Resource implements Iterable<T>, Type {
+
 	private class ListIterator implements Iterator<T> {
 		private Iterator<T> itr;
 		
@@ -35,7 +36,7 @@ public abstract class ListResource<T> extends Resource implements Iterable<T>, T
 
 			try {
 				fetchNextPage();
-			} catch (MailGunRestException e) {
+			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
 
@@ -48,9 +49,9 @@ public abstract class ListResource<T> extends Resource implements Iterable<T>, T
 		this(client, new  MultivaluedMapImpl());
 	}
 	
-	protected void fetchNextPage() throws MailGunRestException {
+	protected void fetchNextPage() {
 		String path = StringUtils.remove(this.nextUri, this.getClient().getBaseUri().toString());
-		ClientResponse response = this.getClient().get(path);
+		ClientResponse response = this.getClient().getService().path(path).get(ClientResponse.class);
 		this.parseResponse(response);
 	}
 	
@@ -88,4 +89,8 @@ public abstract class ListResource<T> extends Resource implements Iterable<T>, T
 		this.pageData = obj.getItems();
 		this.nextUri = (obj.getPaging() != null && obj.getItems().size() != 0) ? obj.getPaging().getNextUrl() : null;
 	}
+
+	protected abstract List getItems();
+	protected abstract Integer getTotalCount();
+	protected abstract Paging getPaging();
 }

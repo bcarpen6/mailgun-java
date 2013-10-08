@@ -1,11 +1,9 @@
 package com.mailgun.api.resources;
 
 import com.mailgun.api.MailGunClient;
-import com.mailgun.api.domain.Paging;
 import com.sun.jersey.api.client.ClientResponse;
 
 import javax.ws.rs.core.MultivaluedMap;
-import java.util.List;
 
 public abstract class Resource {
 	
@@ -27,15 +25,12 @@ public abstract class Resource {
 	
 	protected void load(MultivaluedMap<String, String> params) {
 		String path = this.getResourceLocation();
-		ClientResponse response = this.getClient().get(path, params);
+		ClientResponse response = this.getClient().getService().path(path).queryParams(params).get(ClientResponse.class);
 		this.parseResponse(response);
 		this.loaded = true;
 	}
 
 	protected abstract String getResourceLocation();
 	protected abstract void parseResponse(ClientResponse response);
-	protected abstract List getItems();
-	protected abstract Integer getTotalCount();
-	protected abstract Paging getPaging();
-	
+
 }
