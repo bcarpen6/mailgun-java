@@ -26,8 +26,8 @@ public class MailGunExample {
 //			System.out.println(gson.toJson(bounce));
 //		}
 
-		String to = "bcarpen6@gmail.com";
-		String from = "bcarpen6@gmail.com";
+		String to = "";
+		String from = "";
 		String subject = "hello";
 		String body = "yep";
 
