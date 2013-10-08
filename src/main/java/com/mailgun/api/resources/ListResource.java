@@ -49,7 +49,7 @@ public abstract class ListResource<T> extends Resource implements Iterable<T>, T
 		this(client, new  MultivaluedMapImpl());
 	}
 	
-	protected void fetchNextPage() {
+	protected void fetchNextPage() throws Exception {
 		String path = StringUtils.remove(this.nextUri, this.getClient().getBaseUri().toString());
 		ClientResponse response = this.getClient().getService().path(path).get(ClientResponse.class);
 		this.parseResponse(response);
@@ -83,7 +83,7 @@ public abstract class ListResource<T> extends Resource implements Iterable<T>, T
 	private String nextUri = null;
 
 	@Override
-	protected void parseResponse(ClientResponse response) {
+	protected void parseResponse(ClientResponse response) throws Exception {
 		Gson gson = new Gson();
 		ListResource obj = gson.fromJson(response.getEntity(String.class), this.getClass());
 		this.pageData = obj.getItems();

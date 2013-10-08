@@ -10,6 +10,8 @@ public class MailGunResponse {
 	@SerializedName("id")
 	String id;
 
+	int statusCode;
+
 	public MailGunResponse() {
 		super();
 	}
@@ -30,4 +32,19 @@ public class MailGunResponse {
 		this.message = message;
 	}
 
+	public int getStatusCode(){
+		return statusCode;
+	}
+
+	public void setStatusCode(int statusCode){
+		this.statusCode = statusCode;
+	}
+
+	@Override
+	public String toString() {
+		return "MailGunResponse{" +
+				"message='" + message + '\'' +
+				", id='" + id + '\'' +
+				'}';
+	}
 }

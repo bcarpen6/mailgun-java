@@ -1,5 +1,6 @@
 package com.mailgun.api;
 
+import com.mailgun.api.exceptions.MailGunException;
 import com.mailgun.api.resources.instances.MessageInstance;
 import com.mailgun.api.resources.lists.Bounces;
 import com.sun.jersey.api.client.Client;
@@ -34,7 +35,7 @@ public class MailGunClient {
         return this.getBounces(new MultivaluedMapImpl());
     }
 
-	public MessageInstance sendSimpleEmail(Email email) {
+	public MessageInstance sendSimpleEmail(Email email) throws Exception, MailGunException {
 		MessageInstance msg = new MessageInstance (this, email);
 		msg.sendSimple();
 		return msg;

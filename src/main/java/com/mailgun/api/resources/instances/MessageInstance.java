@@ -1,7 +1,11 @@
 package com.mailgun.api.resources.instances;
 
 import com.google.gson.Gson;
-import com.mailgun.api.*;
+import com.mailgun.api.Email;
+import com.mailgun.api.Endpoints;
+import com.mailgun.api.MailGunClient;
+import com.mailgun.api.MailGunResponse;
+import com.mailgun.api.exceptions.MailGunException;
 import com.mailgun.api.resources.InstanceResource;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
@@ -19,7 +23,7 @@ public class MessageInstance extends InstanceResource {
 		this.email = email;
 	}
 
-	public MailGunResponse sendSimple() {
+	public MailGunResponse sendSimple() throws MailGunException {
 		MultivaluedMapImpl formData = new MultivaluedMapImpl();
 		formData.add("from", this.email.getFrom());
 		formData.add("to", this.email.getTo());
@@ -27,7 +31,8 @@ public class MessageInstance extends InstanceResource {
 		formData.add("text", "test");
 		ClientResponse response =  this.getClient().getService().path(this.getResourceLocation()).
 				type(MediaType.APPLICATION_FORM_URLENCODED).post(ClientResponse.class, formData);
-		parseResponse(response);
+		this.responseHandler(response);
+		this.parseResponse(response);
 		return this.response;
 	}
 
