@@ -23,7 +23,6 @@ public class MailGunExample {
 
 		Email email = new Email(to, from, body, subject);
 		MessageInstance msg = client.sendSimpleEmail(email);
-		System.out.println(msg.getResponse());
 
 	}
 }

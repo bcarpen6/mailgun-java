@@ -31,8 +31,9 @@ public class MessageInstance extends InstanceResource {
 		formData.add("text", "test");
 		ClientResponse response =  this.getClient().getService().path(this.getResourceLocation()).
 				type(MediaType.APPLICATION_FORM_URLENCODED).post(ClientResponse.class, formData);
-		this.responseHandler(response);
 		this.parseResponse(response);
+		this.checkStatusCode(this.response);
+		return this.response;
 	}
 
 	public MailGunResponse sendMIME(MailGunClient client, Email email) {
@@ -49,6 +50,7 @@ public class MessageInstance extends InstanceResource {
 	protected void parseResponse(ClientResponse response) {
 		Gson gson = new Gson();
 		this.response = gson.fromJson(response.getEntity(String.class), MailGunResponse.class);
+		this.response.setStatusCode(response.getStatus());
 	}
 
 	public MailGunResponse getResponse() {
