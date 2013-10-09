@@ -33,7 +33,6 @@ public class MessageInstance extends InstanceResource {
 				type(MediaType.APPLICATION_FORM_URLENCODED).post(ClientResponse.class, formData);
 		this.parseResponse(response);
 		this.checkStatusCode(this.response);
-		return this.response;
 	}
 
 	public MailGunResponse sendMIME(MailGunClient client, Email email) {
