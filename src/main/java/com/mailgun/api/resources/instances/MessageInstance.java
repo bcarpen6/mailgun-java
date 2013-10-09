@@ -23,7 +23,7 @@ public class MessageInstance extends InstanceResource {
 		this.email = email;
 	}
 
-	public MailGunResponse sendSimple() throws MailGunException {
+	public void sendSimple() throws MailGunException {
 		MultivaluedMapImpl formData = new MultivaluedMapImpl();
 		formData.add("from", this.email.getFrom());
 		formData.add("to", this.email.getTo());
@@ -33,7 +33,6 @@ public class MessageInstance extends InstanceResource {
 				type(MediaType.APPLICATION_FORM_URLENCODED).post(ClientResponse.class, formData);
 		this.responseHandler(response);
 		this.parseResponse(response);
-		return this.response;
 	}
 
 	public MailGunResponse sendMIME(MailGunClient client, Email email) {
